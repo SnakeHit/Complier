@@ -12,7 +12,7 @@
 
 #### LL(1)
 
-文法在 `Grammer.txt` 中，目前只实现了 `Frist集合` 的自动求解程序，在 `\src\symbols\First.java`中 。使用了 `mini-table` 进行输出，可以生成比较漂亮的表格。感谢[@blinkfox](https://github.com/blinkfox/mini-table)
+文法在 `Grammer.txt` 中，目前只实现了 `Frist集合` 的自动求解程序。算法在**龙书Page140**。程序在 `\src\symbols\First.java`中 。使用了 `mini-table` 进行输出，可以生成比较漂亮的表格。感谢[@blinkfox](https://github.com/blinkfox/mini-table)
 
 输出文件在 `\src\symbols\first.txt`。
 
