@@ -25,7 +25,7 @@ public class Main {
                     break;
                 }
             }
-            System.out.println(lexer.words);
+//            System.out.println(lexer.words);
         } catch (IOException e) {
             e.printStackTrace();
         }
