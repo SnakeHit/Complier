@@ -13,13 +13,10 @@ import java.io.IOException;
 import java.util.Hashtable;
 
 public class Lexer {
-    public int line = 1;
-    public Hashtable<String, Word> words = new Hashtable<String, Word>();
-    public char[] chars;
-    public int lookahead = 0; //指针
-    public char peek = ' ';
+    public static Hashtable<String, Word> words = new Hashtable<String, Word>();
 
-    public Lexer(FileReader stream, int length) throws IOException {
+    //方便求解first集合
+    static {
         reserve(new Word("auto", Tag.AUTO));
         reserve(new Word("break", Tag.BREAK));
         reserve(new Word("case", Tag.CASE));
@@ -49,23 +46,53 @@ public class Lexer {
         reserve(new Word("unsigned", Tag.UNSIGNED));
         reserve(new Word("void", Tag.VOID));
         reserve(new Word("volatile", Tag.VOLATILE));
+        reserve(new Word("basic", Tag.BASIC));
+        reserve(new Word("id", Tag.ID));
+        reserve(Word.eq);
+        reserve(Word.or);
+        reserve(Word.and);
+        reserve(Word.ne);
+        reserve(Word.le);
+        reserve(Word.ge);
+        reserve(Word.shl);
+        reserve(Word.shr);
+        reserve(Word.pa);
+        reserve(Word.sa);
+        reserve(Word.ma);
+        reserve(Word.da);
+        reserve(Word.ra);
+        reserve(Word.aa);
+        reserve(Word.oa);
+        reserve(Word.xa);
+        reserve(Word.sp);
+        reserve(Word.sm);
+        //这里放非终结符
         reserve(Word.True);
         reserve(Word.False);
         reserve(Type.Int);
         reserve(Type.Char);
         reserve(Type.Float);
+
+    }
+
+    public int line = 1;
+    public char[] chars;
+    public int lookahead = 0; //指针
+    public char peek = ' ';
+
+    public Lexer(FileReader stream, int length) throws IOException {
         chars = new char[length + 1];
         chars[length] = '\0';
         stream.read(chars);
     }
 
+    public static void reserve(Word w) {
+        words.put(w.lexeme, w);
+    }
+
     public char readChar() {
         peek = chars[lookahead++];
         return peek;
-    }
-
-    public void reserve(Word w) {
-        words.put(w.lexeme, w);
     }
 
     /*向前看指针，如果匹配则指针向前移动一位，下次readChar()时指向下一个词法单元*/

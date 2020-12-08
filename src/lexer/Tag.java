@@ -14,7 +14,7 @@ public class Tag {
             REGISTER = 274, RETURN = 275, SHORT = 276, SIGNED = 277, SIZEOF = 278, STATIC = 279,
             STRUCT = 280, SWITCH = 281, TYPEDEF = 282, UNION = 283, UNSIGNED = 284, VOID = 285,
             VOLATILE = 286, WHILE = 287;
-    //运算符
+    //运算符(除单目)
     public final static int
             SHL = 288, SHR = 289,
             EQ = 290, NE = 291,

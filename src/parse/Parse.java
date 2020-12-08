@@ -7,19 +7,26 @@ import lexer.Token;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Hashtable;
+import java.util.List;
 
 /**
  * @author suyi
  * @version 1.0
  * @date 2020/12/7 20:14
  */
+
+
 public class Parse {
     private static final File file = new File("D:\\Colleage\\LexAnalyze\\src\\test.c");
     private Lexer lexer;
     private Token token;
+    private List<StringBuilder> list; //存储First集合
+    private Hashtable<String, String> hashtable; //存储终结符和与之对应的First集合
 
     /*
      * 递归下降程序应该先对后面的非终结符创建对应的子程序
+     * 第一个版本写的不太好，下面应该考虑能不能自动生成first集合
      * */
     public static void main(String[] args) {
         try {
