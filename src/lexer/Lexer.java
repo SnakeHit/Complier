@@ -66,6 +66,8 @@ public class Lexer {
         reserve(Word.xa);
         reserve(Word.sp);
         reserve(Word.sm);
+        reserve(new Word("num", Tag.NUM));
+        reserve(new Word("real", Tag.REAL));
         //这里放非终结符
         reserve(Word.True);
         reserve(Word.False);
