@@ -15,7 +15,7 @@ import java.io.IOException;
  * @date 2020/12/1 16:52
  */
 public class Calculator {
-    private static final File file = new File("D:\\Colleage\\LexAnalyze\\src\\test.c");
+    private static final File file = new File("D:\\Colleage\\LexAnalyze\\src\\testCal.txt");
     private Lexer lexer;
     private Token token;
 

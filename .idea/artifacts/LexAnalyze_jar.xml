@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="LexAnalyze:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/LexAnalyze_jar</output-path>
+    <root id="archive" name="LexAnalyze.jar">
+      <element id="module-output" name="LexAnalyze" />
+    </root>
+  </artifact>
+</component>

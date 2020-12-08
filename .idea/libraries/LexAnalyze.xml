@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="LexAnalyze">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../Note/JAVA笔记/LexAnalyze.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
