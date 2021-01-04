@@ -1,7 +1,7 @@
 package symbols;
 
 import lexer.Lexer;
-import test.MiniTable;
+import util.MiniTable;
 
 import java.util.ArrayList;
 import java.util.Hashtable;

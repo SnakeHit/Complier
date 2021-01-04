@@ -1,6 +1,6 @@
 package symbols;
 
-import test.MiniTable;
+import util.MiniTable;
 
 import java.io.File;
 import java.io.FileNotFoundException;

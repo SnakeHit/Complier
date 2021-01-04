@@ -18,7 +18,7 @@ import java.util.List;
 
 
 public class Parse {
-    private static final File file = new File("D:\\Colleage\\LexAnalyze\\src\\test.c");
+    private static final File file = new File("src/test.c");
     private Lexer lexer;
     private Token token;
     private List<StringBuilder> list; //存储First集合
