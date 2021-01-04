@@ -1,0 +1,63 @@
++----------------------------------------------------+
+|                  First Collection                  |
++--------------+-------------------------------------+
+| non-terminal |                first                |
++--------------+-------------------------------------+
+|    empty     |                empty                |
+|   program    |                basic                |
+|     bool     | !, -, (, id, num, real, true, false |
+|      ]       |                  ]                  |
+|      [       |                  [                  |
+|    decls1    |            empty, basic             |
+|    bool1     |              ||, empty              |
+|     true     |                true                 |
+|    decls     |            empty, basic             |
+|      &&      |                 &&                  |
+|     equ      | !, -, (, id, num, real, true, false |
+|      do      |                 do                  |
+|      ||      |                 ||                  |
+|    block     |                  {                  |
+|     join     | !, -, (, id, num, real, true, false |
+|     real     |                real                 |
+|      >       |                  >                  |
+|      =       |                  =                  |
+|      <       |                  <                  |
+|     else     |                else                 |
+|      ;       |                  ;                  |
+|    basic     |                basic                |
+|    term1     |             *, /, empty             |
+|    unary     | !, -, (, id, num, real, true, false |
+|      ==      |                 ==                  |
+|    stmts     | empty, if, while, do, break, {, id  |
+|    type1     |              [, empty               |
+|      /       |                  /                  |
+|    break     |                break                |
+|      -       |                  -                  |
+|      +       |                  +                  |
+|      *       |                  *                  |
+|      )       |                  )                  |
+|     term     | !, -, (, id, num, real, true, false |
+|      (       |                  (                  |
+|      !=      |                 !=                  |
+|      !       |                  !                  |
+|    while     |                while                |
+|      if      |                 if                  |
+|     equ1     |            ==, !=, empty            |
+|      id      |                 id                  |
+|      }       |                  }                  |
+|     rel      | !, -, (, id, num, real, true, false |
+|      {       |                  {                  |
+|      <=      |                 <=                  |
+|    false     |                false                |
+|     expr     | !, -, (, id, num, real, true, false |
+|    stmts1    | empty, if, while, do, break, {, id  |
+|    factor    |    (, id, num, real, true, false    |
+|     lval     |                 id                  |
+|    lval1     |              [, empty               |
+|     decl     |                basic                |
+|    expr1     |             +, -, empty             |
+|     num      |                 num                 |
+|     stmt     |     if, while, do, break, {, id     |
+|    join1     |              &&, empty              |
+|     type     |                basic                |
++--------------+-------------------------------------+

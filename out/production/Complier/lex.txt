@@ -1,0 +1,22 @@
+<program> ::= <basic> <id> <(> <)> <block>
+<block> ::= <{> <decls> <stmts> <}>
+<decls> ::= <decls1>
+<decls1> ::= <decl> <decls1>
+<decls1> ::= <empty>
+<decl> ::= <type> <id> <;>
+<type> ::= <basic> <type1>
+<type1> ::= <[> <num> <]> <type1>
+<type1> ::= <empty>
+<stmts> ::= <stmts1>
+<stmts1> ::= <stmt> <stmts1>
+<stmts1> ::= <empty>
+<stmt> ::= <lval> <=> <bool> <;>
+<stmt> ::= <if> <(> <bool> <)> <stmt>
+<stmt> ::= <if> <(> <bool> <)> <stmt> <else> <stmt>
+<stmt> ::= <while> <(> <bool> <)> <stmt>
+<stmt> ::= <do> <stmt> <while> <(> <bool> <)> <;>
+<stmt> ::= <break> <;>
+<stmt> ::= <{> <decls> <stmts> <}>
+<lval> ::= <id> <lval1>
+<lval1> ::= <[> <bool> <]> <lval1>
+<lval1> ::= <empty>
