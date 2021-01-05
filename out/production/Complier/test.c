@@ -17,10 +17,10 @@ void main(){
     //变量赋值完毕，下面进入语句部分
     while(1) {
         if(i >= j){
-            break;
+            break
         }
         j = 10;
         i = j + 1;
-        do i = i + 1; while(i < 10);
+        do i = i + 1; while (i < 10);
     }
 }

@@ -109,7 +109,10 @@ public class Parse {
         } else if (token.tag == Tag.DO) {
             move();
             stmt();
-            match(Tag.WHILE);
+            if (token.tag == Tag.WHILE)
+                move();
+            else
+                error();
             match('(');
             bool();
             match(')');
@@ -126,7 +129,10 @@ public class Parse {
     }
 
     private void lval() {
-        match(Tag.ID);
+        if (token.tag == Tag.ID)
+            move();
+        else
+            error();
         lval1();
 
     }
@@ -156,19 +162,28 @@ public class Parse {
 
     private void decl() {
         type();
-        match(Tag.ID);
+        if (token.tag == Tag.ID)
+            move();
+        else
+            error();
         match(';');
     }
 
     private void type() {
-        match(Tag.BASIC);
+        if (token.tag == Tag.BASIC)
+            move();
+        else
+            error();
         type1();
     }
 
     private void type1() {
         if (token.tag == '[') {
             match('[');
-            match(Tag.NUM);
+            if (token.tag == Tag.NUM)
+                move();
+            else
+                error();
             match(']');
             type1();
         }
@@ -186,7 +201,7 @@ public class Parse {
 
     private void bool1() {
         if (token.tag == Tag.OR) {
-            match(Tag.OR);
+            move();
             join();
             bool1();
         }
@@ -203,7 +218,7 @@ public class Parse {
      * */
     private void join1() {
         if (token.tag == Tag.AND) {
-            match(Tag.AND);
+            move();
             equ();
             join1();
         }
@@ -217,11 +232,11 @@ public class Parse {
 
     private void equ1() {
         if (token.tag == Tag.EQ) {
-            match(Tag.EQ);
+            move();
             rel();
             equ1();
         } else if (token.tag == Tag.NE) {
-            match(Tag.NE);
+            move();
             rel();
             equ1();
         }
@@ -240,10 +255,10 @@ public class Parse {
             match('>');
             expr();
         } else if (token.tag == Tag.LE) {
-            match(Tag.LE);
+            move();
             expr();
         } else if (token.tag == Tag.GE) {
-            match(Tag.GE);
+            move();
             expr();
         }
         //else do nothing
@@ -290,7 +305,7 @@ public class Parse {
             match('!');
             unary();
         } else if (token.tag == Tag.MINUS) {
-            match(Tag.MINUS);
+            move();
             unary();
         } else {
             factor();
@@ -305,19 +320,12 @@ public class Parse {
                 match(')');
                 break;
             case Tag.NUM:
-                match(Tag.NUM);
-                break;
-            case Tag.REAL:
-                match(Tag.REAL);
-                break;
-            case Tag.TRUE:
-                match(Tag.TRUE);
-                break;
             case Tag.FALSE:
-                match(Tag.FALSE);
-                break;
             case Tag.ID:
-                match(Tag.ID);
+            case Tag.TRUE:
+            case Tag.REAL:
+                move();
+                break;
         }
     }
 
@@ -330,9 +338,14 @@ public class Parse {
         throw new Error("near line " + lexer.line + ": sys error");
     }
 
+    public void error(int t) {
+        char s = (char) t;
+        throw new Error("near line " + lexer.line + ": expected "+s);
+    }
+
     //匹配当前词法单元，然后移动到下一个词法单元
     public void match(int t) {
         if (token.tag == t) move();
-        else error();
+        else error(t);
     }
 }

@@ -21,6 +21,6 @@ void main(){
         }
         j = 10;
         i = j + 1;
-        do i = i + 1; while(i < 10);
+        do i = i + 1; while (i < 10);
     }
 }
